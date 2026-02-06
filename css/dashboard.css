@@ -1104,6 +1104,379 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =====================================================
+   Strategy Cards
+   ===================================================== */
+
+.strategy-card {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    height: 100%;
+    transition: all var(--transition-speed);
+}
+
+.strategy-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+}
+
+.strategy-card.featured {
+    border: 1px solid var(--accent-primary);
+}
+
+.strategy-card.westexec {
+    border: 1px solid var(--accent-success);
+}
+
+.strategy-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.strategy-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--accent-primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.strategy-icon i {
+    font-size: 1.5rem;
+    color: var(--windward-white);
+}
+
+.strategy-icon.success {
+    background: var(--accent-success);
+}
+
+.strategy-icon.warning {
+    background: var(--accent-warning);
+}
+
+.strategy-icon.info {
+    background: var(--accent-info);
+}
+
+.strategy-title {
+    flex: 1;
+}
+
+.strategy-title h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+    text-transform: none;
+}
+
+.strategy-cost {
+    font-size: 0.75rem;
+    color: var(--accent-warning);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.strategy-cost.success {
+    color: var(--accent-success);
+}
+
+.strategy-content {
+    color: var(--text-secondary);
+}
+
+.strategy-stat {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.strategy-actions {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.strategy-actions li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.strategy-actions li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+}
+
+.strategy-actions li strong {
+    color: var(--text-primary);
+}
+
+.strategy-tip {
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.strategy-tip i {
+    color: var(--accent-warning);
+}
+
+.partner-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--accent-success);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+}
+
+.partner-link:hover {
+    background: #238a6e;
+    color: white;
+}
+
+/* Messaging Grid */
+.messaging-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.messaging-item {
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.messaging-item.dont {
+    border-left: 3px solid var(--accent-danger);
+}
+
+.messaging-item.do {
+    border-left: 3px solid var(--accent-success);
+}
+
+.messaging-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.messaging-item.dont .messaging-label {
+    color: var(--accent-danger);
+}
+
+.messaging-item.do .messaging-label {
+    color: var(--accent-success);
+}
+
+.messaging-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.messaging-item ul li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding: 0.25rem 0;
+}
+
+/* =====================================================
+   Enhanced Mobile Styles
+   ===================================================== */
+
+/* Mobile navigation improvements */
+@media (max-width: 991px) {
+    .nav-pills-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 1rem 0;
+    }
+
+    .nav-pill {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .nav-pill span {
+        display: none;
+    }
+
+    .nav-pill i {
+        font-size: 1.1rem;
+    }
+}
+
+/* Better mobile cards */
+@media (max-width: 768px) {
+    .strategy-card {
+        padding: 1.25rem;
+    }
+
+    .strategy-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .strategy-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .strategy-icon i {
+        font-size: 1.25rem;
+    }
+
+    .messaging-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .business-card {
+        margin-bottom: 1rem;
+    }
+
+    .action-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .action-priority {
+        margin: 0 auto;
+    }
+
+    .insight-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .insight-icon {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Table horizontal scroll */
+    .table-responsive {
+        margin: 0 -1rem;
+        padding: 0 1rem;
+    }
+
+    .data-table {
+        font-size: 0.85rem;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 0.75rem 0.5rem;
+        white-space: nowrap;
+    }
+
+    /* Summary cards side by side on mobile */
+    .summary-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .dashboard-section {
+        padding: 0.75rem;
+    }
+
+    .section-header h1 {
+        font-size: 1.25rem;
+        letter-spacing: 1px;
+    }
+
+    .kpi-grid {
+        gap: 1rem;
+    }
+
+    .kpi-card {
+        padding: 1rem;
+    }
+
+    .kpi-value {
+        font-size: 1.5rem;
+    }
+
+    .kpi-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .kpi-icon i {
+        font-size: 1.25rem;
+    }
+
+    .chart-card,
+    .stats-card,
+    .table-card {
+        padding: 1rem;
+    }
+
+    .chart-container {
+        height: 220px;
+    }
+
+    .chart-container.chart-large {
+        height: 260px;
+    }
+
+    .strategy-actions li {
+        font-size: 0.85rem;
+    }
+
+    .mobile-nav-item span {
+        font-size: 0.6rem;
+    }
+
+    .mobile-nav-item i {
+        font-size: 1.1rem;
+    }
+}
+
+/* Landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-content {
+        padding-bottom: calc(var(--mobile-nav-height) + 2rem);
+    }
+}
+
+/* =====================================================
    ApexCharts Dark Mode Overrides
    ===================================================== */
 
