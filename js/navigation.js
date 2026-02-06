@@ -172,7 +172,7 @@ function initializeTooltips() {
 document.addEventListener('keydown', function(e) {
     // Arrow keys for section navigation
     if (e.altKey) {
-        const sections = ['executive', 'funnel', 'business', 'channels', 'paid', 'actions'];
+        const sections = ['revenue', 'executive', 'funnel', 'business', 'channels', 'paid', 'actions', 'strategy'];
         const activeSection = document.querySelector('.dashboard-section.active');
         const currentIndex = sections.indexOf(activeSection?.id);
 

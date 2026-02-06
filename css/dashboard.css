@@ -451,6 +451,17 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+.chart-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.table-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-left: 0.5rem;
+}
+
 .chart-container {
     height: 300px;
     position: relative;
@@ -583,6 +594,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .data-table tr:hover {
     background: var(--bg-tertiary);
+}
+
+.data-table tr.table-highlight {
+    background: var(--bg-tertiary);
+    font-weight: 600;
+}
+
+.data-table tr.table-highlight td {
+    border-top: 2px solid var(--accent-primary);
+}
+
+/* =====================================================
+   Metric Value Highlight
+   ===================================================== */
+
+.metric-value.highlight {
+    color: var(--accent-primary);
+    font-weight: 700;
 }
 
 /* =====================================================

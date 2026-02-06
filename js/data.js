@@ -264,6 +264,86 @@ const dashboardData = {
             "Opp Creation: -7% despite +115% MQLs",
             "RMKT Investment: Only 10% of budget"
         ]
+    },
+
+    // Revenue Intelligence - Company-wide metrics with marketing contribution
+    revenue: {
+        // Company-wide Closed Won YTD
+        closedWonYTD: {
+            total: { value: 39450, formatted: "$39.5K", deals: 2 },
+            marketing: { value: 21000, formatted: "$21K", deals: 1 },
+            marketingPercent: 53,
+            status: "strong"
+        },
+
+        // Company-wide Open Pipeline
+        pipeline: {
+            total: { value: 10541256, formatted: "$10.54M", opps: 93 },
+            marketing: { value: 5360000, formatted: "$5.36M", opps: 14 },
+            marketingPercent: 51,
+            weighted: { value: 3915027, formatted: "$3.92M" }
+        },
+
+        // By Business Line (with GOV US/ROW split)
+        byBusinessLine: {
+            commercial: {
+                name: "Commercial",
+                closedWon: { value: 39450, formatted: "$39.5K", deals: 2 },
+                pipeline: { value: 2153906, formatted: "$2.15M", opps: 57 },
+                weighted: { value: 942522, formatted: "$943K" },
+                marketingContrib: 34,
+                avgDealSize: 37788,
+                status: "strong",
+                insight: "Strong pipeline with good deal velocity"
+            },
+            govUS: {
+                name: "GOV US",
+                closedWon: { value: 0, formatted: "$0", deals: 0 },
+                pipeline: { value: 4536100, formatted: "$4.54M", opps: 17 },
+                weighted: { value: 1393230, formatted: "$1.39M" },
+                marketingContrib: 45,
+                avgDealSize: 266829,
+                status: "watch",
+                insight: "Large pipeline but no closed deals yet - long sales cycle"
+            },
+            govROW: {
+                name: "GOV ROW",
+                closedWon: { value: 0, formatted: "$0", deals: 0 },
+                pipeline: { value: 3851250, formatted: "$3.85M", opps: 19 },
+                weighted: { value: 1579275, formatted: "$1.58M" },
+                marketingContrib: 55,
+                avgDealSize: 202697,
+                status: "strong",
+                insight: "Healthy pipeline with good marketing influence"
+            }
+        },
+
+        // Pipeline by Stage
+        byStage: [
+            { stage: "C&L Negotiation", opps: 8, acv: 314400, probability: 80, formatted: "$314K" },
+            { stage: "Proposal", opps: 25, acv: 1807501, probability: 60, formatted: "$1.81M" },
+            { stage: "POC/Trial", opps: 9, acv: 812002, probability: 40, formatted: "$812K" },
+            { stage: "Prospect Engagement", opps: 46, acv: 7327352, probability: 30, formatted: "$7.33M" },
+            { stage: "Qualified Lead", opps: 5, acv: 280001, probability: 20, formatted: "$280K" }
+        ],
+
+        // Pipeline by Opportunity Type
+        byOppType: [
+            { type: "New Business", opps: 87, acv: 9990256, percent: 95, formatted: "$9.99M" },
+            { type: "Cross-sell", opps: 4, acv: 526000, percent: 5, formatted: "$526K" },
+            { type: "Upsell", opps: 1, acv: 25000, percent: 0, formatted: "$25K" },
+            { type: "Renewal", opps: 1, acv: 0, percent: 0, formatted: "$0" }
+        ],
+
+        // Customer Health (Expansion Pipeline as proxy)
+        customerHealth: {
+            crossSell: { opps: 4, acv: 526000, formatted: "$526K", status: "active" },
+            upsell: { opps: 1, acv: 25000, formatted: "$25K", status: "active" },
+            renewal: { opps: 1, acv: 0, formatted: "$0", status: "monitor" },
+            totalExpansion: { opps: 6, acv: 551000, formatted: "$551K" },
+            healthStatus: "healthy",
+            insight: "Active expansion pipeline indicates healthy customer relationships"
+        }
     }
 };
 

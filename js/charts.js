@@ -580,6 +580,182 @@ function renderCostPerMqlChart() {
     chartInstances.costPerMql.render();
 }
 
+// Pipeline by Stage Chart (Horizontal Bar)
+function renderPipelineStageChart() {
+    const colors = getThemeColors();
+    const data = dashboardData.revenue.byStage;
+
+    // Reverse order so highest probability is at top
+    const reversedData = [...data].reverse();
+
+    const options = {
+        ...getCommonOptions(),
+        series: [{
+            name: 'Pipeline ACV',
+            data: reversedData.map(d => d.acv)
+        }],
+        chart: {
+            type: 'bar',
+            height: 380,
+            toolbar: { show: false }
+        },
+        colors: [colors.primary],
+        plotOptions: {
+            bar: {
+                horizontal: true,
+                barHeight: '60%',
+                borderRadius: 6,
+                distributed: false
+            }
+        },
+        dataLabels: {
+            enabled: true,
+            formatter: function(val) {
+                if (val >= 1000000) {
+                    return '$' + (val / 1000000).toFixed(2) + 'M';
+                } else if (val >= 1000) {
+                    return '$' + (val / 1000).toFixed(0) + 'K';
+                }
+                return '$' + val;
+            },
+            style: {
+                fontSize: '12px',
+                fontWeight: 600
+            }
+        },
+        xaxis: {
+            categories: reversedData.map(d => d.stage + ' (' + d.probability + '%)'),
+            labels: {
+                style: { colors: colors.text },
+                formatter: function(val) {
+                    if (val >= 1000000) {
+                        return '$' + (val / 1000000).toFixed(1) + 'M';
+                    } else if (val >= 1000) {
+                        return '$' + (val / 1000).toFixed(0) + 'K';
+                    }
+                    return '$' + val;
+                }
+            }
+        },
+        yaxis: {
+            labels: {
+                style: {
+                    colors: colors.text,
+                    fontSize: '12px'
+                }
+            }
+        },
+        tooltip: {
+            y: {
+                formatter: function(val, { dataPointIndex }) {
+                    const stage = reversedData[dataPointIndex];
+                    return '$' + (val / 1000000).toFixed(2) + 'M (' + stage.opps + ' opps)';
+                }
+            }
+        },
+        grid: {
+            borderColor: colors.gridLines,
+            xaxis: { lines: { show: true } },
+            yaxis: { lines: { show: false } }
+        }
+    };
+
+    if (chartInstances.pipelineStage) {
+        chartInstances.pipelineStage.destroy();
+    }
+
+    chartInstances.pipelineStage = new ApexCharts(
+        document.querySelector('#pipelineStageChart'),
+        options
+    );
+    chartInstances.pipelineStage.render();
+}
+
+// Opportunity Type Chart (Donut)
+function renderOppTypeChart() {
+    const colors = getThemeColors();
+    const data = dashboardData.revenue.byOppType;
+
+    const options = {
+        ...getCommonOptions(),
+        series: data.map(d => d.acv),
+        chart: {
+            type: 'donut',
+            height: 300
+        },
+        labels: data.map(d => d.type),
+        colors: [colors.primary, colors.success, colors.warning, colors.info],
+        plotOptions: {
+            pie: {
+                donut: {
+                    size: '65%',
+                    labels: {
+                        show: true,
+                        name: {
+                            show: true,
+                            color: colors.text,
+                            fontSize: '14px'
+                        },
+                        value: {
+                            show: true,
+                            color: colors.text,
+                            fontSize: '16px',
+                            fontWeight: 600,
+                            formatter: function(val) {
+                                if (val >= 1000000) {
+                                    return '$' + (val / 1000000).toFixed(1) + 'M';
+                                } else if (val >= 1000) {
+                                    return '$' + (val / 1000).toFixed(0) + 'K';
+                                }
+                                return '$' + val;
+                            }
+                        },
+                        total: {
+                            show: true,
+                            label: 'Total',
+                            color: colors.text,
+                            formatter: function(w) {
+                                const total = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                                return '$' + (total / 1000000).toFixed(1) + 'M';
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        legend: {
+            position: 'bottom',
+            labels: { colors: colors.text },
+            formatter: function(seriesName, opts) {
+                const idx = opts.seriesIndex;
+                const oppCount = data[idx].opps;
+                return seriesName + ' (' + oppCount + ')';
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        tooltip: {
+            y: {
+                formatter: function(val, { seriesIndex }) {
+                    const item = data[seriesIndex];
+                    return '$' + (val / 1000000).toFixed(2) + 'M (' + item.opps + ' opps)';
+                }
+            }
+        }
+    };
+
+    if (chartInstances.oppType) {
+        chartInstances.oppType.destroy();
+    }
+
+    chartInstances.oppType = new ApexCharts(
+        document.querySelector('#oppTypeChart'),
+        options
+    );
+    chartInstances.oppType.render();
+}
+
 // Initialize all charts
 function initializeCharts() {
     // Wait for DOM to be ready
@@ -591,6 +767,14 @@ function initializeCharts() {
 }
 
 function renderAllCharts() {
+    // Revenue section charts
+    if (document.querySelector('#pipelineStageChart')) {
+        renderPipelineStageChart();
+    }
+    if (document.querySelector('#oppTypeChart')) {
+        renderOppTypeChart();
+    }
+
     // Executive section chart
     if (document.querySelector('#executiveFunnelChart')) {
         renderExecutiveFunnelChart();

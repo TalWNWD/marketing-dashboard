@@ -184,6 +184,14 @@ function animateSection(sectionId) {
 
     // Run appropriate animations based on section
     switch(sectionId) {
+        case 'revenue':
+            animateKPICards(section);
+            animateCountersInSection(section);
+            animateInsightBoxes(section);
+            animateBusinessCards(section);
+            animateChartCards(section);
+            break;
+
         case 'executive':
             animateKPICards(section);
             animateCountersInSection(section);

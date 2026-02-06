@@ -28,7 +28,13 @@
             <div class="collapse navbar-collapse" id="navContent">
                 <ul class="navbar-nav nav-pills-container mx-auto">
                     <li class="nav-item">
-                        <button class="nav-pill active" data-section="executive">
+                        <button class="nav-pill active" data-section="revenue">
+                            <i class="bi bi-currency-dollar"></i>
+                            <span>Revenue</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-pill" data-section="executive">
                             <i class="bi bi-speedometer2"></i>
                             <span>Executive</span>
                         </button>
@@ -83,8 +89,331 @@
     <!-- Main Content -->
     <main class="dashboard-content">
 
+        <!-- Revenue Intelligence Section -->
+        <section id="revenue" class="dashboard-section active">
+            <div class="container-fluid">
+                <div class="section-header">
+                    <div>
+                        <h1>Revenue Intelligence</h1>
+                        <p class="section-subtitle">Company Pipeline & Marketing Contribution</p>
+                    </div>
+                    <div class="data-badge">
+                        <i class="bi bi-clock"></i>
+                        <span>Data as of <span>Feb 5, 2026</span></span>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <!-- Total Closed Won YTD -->
+                    <div class="kpi-card success" data-tooltip="true">
+                        <div class="kpi-icon">
+                            <i class="bi bi-trophy"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">
+                                <span class="counter" data-target="39.5" data-prefix="$" data-suffix="K">$0K</span>
+                            </div>
+                            <div class="kpi-label">Closed Won YTD</div>
+                            <div class="kpi-detail">
+                                2 deals closed
+                            </div>
+                        </div>
+                        <div class="kpi-badge">
+                            <span class="badge bg-success">Company Total</span>
+                        </div>
+                        <div class="kpi-tooltip">
+                            <strong>Company-Wide Revenue:</strong><br>
+                            Total: $39.5K (2 deals)<br>
+                            All from Commercial segment<br>
+                            <strong>Period:</strong> Jan 1 - Feb 5, 2026
+                        </div>
+                    </div>
+
+                    <!-- Marketing % of Closed Won -->
+                    <div class="kpi-card success" data-tooltip="true">
+                        <div class="kpi-icon">
+                            <i class="bi bi-bullseye"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">
+                                <span class="counter" data-target="53" data-suffix="%">0%</span>
+                            </div>
+                            <div class="kpi-label">Marketing % of Won</div>
+                            <div class="kpi-detail">
+                                $21K / $39.5K
+                            </div>
+                        </div>
+                        <div class="kpi-badge">
+                            <span class="badge bg-success">Strong</span>
+                        </div>
+                        <div class="kpi-tooltip">
+                            <strong>Marketing Contribution:</strong><br>
+                            Marketing: $21K (1 deal)<br>
+                            Total: $39.5K (2 deals)<br>
+                            <strong>Calculation:</strong> 21K / 39.5K = 53%
+                        </div>
+                    </div>
+
+                    <!-- Total Pipeline ACV -->
+                    <div class="kpi-card success" data-tooltip="true">
+                        <div class="kpi-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">
+                                <span class="counter" data-target="10.54" data-prefix="$" data-suffix="M">$0M</span>
+                            </div>
+                            <div class="kpi-label">Total Pipeline ACV</div>
+                            <div class="kpi-detail">
+                                93 open opportunities
+                            </div>
+                        </div>
+                        <div class="kpi-badge">
+                            <span class="badge bg-success">Company Total</span>
+                        </div>
+                        <div class="kpi-tooltip">
+                            <strong>All Open Pipeline:</strong><br>
+                            Total: $10.54M (93 opps)<br>
+                            Weighted: $3.92M<br>
+                            <strong>Breakdown:</strong><br>
+                            Commercial: $2.15M | GOV: $8.39M
+                        </div>
+                    </div>
+
+                    <!-- Marketing Pipeline Contribution -->
+                    <div class="kpi-card success" data-tooltip="true">
+                        <div class="kpi-icon">
+                            <i class="bi bi-pie-chart"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">
+                                <span class="counter" data-target="51" data-suffix="%">0%</span>
+                            </div>
+                            <div class="kpi-label">Marketing Pipeline %</div>
+                            <div class="kpi-detail">
+                                $5.36M attributed
+                            </div>
+                        </div>
+                        <div class="kpi-badge">
+                            <span class="badge bg-success">Target: 35%</span>
+                        </div>
+                        <div class="kpi-tooltip">
+                            <strong>Marketing Contribution:</strong><br>
+                            Marketing: $5.36M<br>
+                            Total Pipeline: $10.54M<br>
+                            <strong>Target:</strong> 35% of Total ACV
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insight Box -->
+                <div class="insight-box success mt-3">
+                    <div class="insight-icon">
+                        <i class="bi bi-lightbulb"></i>
+                    </div>
+                    <div class="insight-content">
+                        <strong>Key Insight:</strong> Marketing contributed <strong>53%</strong> of YTD closed revenue and influences <strong>51%</strong> of the current $10.54M pipeline. Government segment represents <strong>80%</strong> of pipeline value but has <strong>0 closed deals</strong> YTD due to longer sales cycles.
+                    </div>
+                </div>
+
+                <!-- Business Line Breakdown -->
+                <div class="row mt-4">
+                    <!-- Commercial -->
+                    <div class="col-lg-4 mb-4">
+                        <div class="business-card success">
+                            <div class="business-header">
+                                <h3><i class="bi bi-building me-2"></i>Commercial</h3>
+                                <span class="status-badge success">Strong</span>
+                            </div>
+                            <div class="business-metrics">
+                                <div class="metric-row">
+                                    <span class="metric-label">Closed Won YTD</span>
+                                    <span class="metric-value">$39.5K <small>(2 deals)</small></span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Open Pipeline</span>
+                                    <span class="metric-value">$2.15M <small>(57 opps)</small></span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Weighted Pipeline</span>
+                                    <span class="metric-value">$943K</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Avg Deal Size</span>
+                                    <span class="metric-value">$37.8K</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Marketing Influence</span>
+                                    <span class="metric-value highlight">34%</span>
+                                </div>
+                            </div>
+                            <div class="business-insight">
+                                <i class="bi bi-info-circle"></i>
+                                Strong pipeline with good deal velocity
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GOV US -->
+                    <div class="col-lg-4 mb-4">
+                        <div class="business-card warning">
+                            <div class="business-header">
+                                <h3><i class="bi bi-flag me-2"></i>GOV US</h3>
+                                <span class="status-badge warning">Watch</span>
+                            </div>
+                            <div class="business-metrics">
+                                <div class="metric-row">
+                                    <span class="metric-label">Closed Won YTD</span>
+                                    <span class="metric-value">$0 <small>(0 deals)</small></span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Open Pipeline</span>
+                                    <span class="metric-value">$4.54M <small>(17 opps)</small></span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Weighted Pipeline</span>
+                                    <span class="metric-value">$1.39M</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Avg Deal Size</span>
+                                    <span class="metric-value">$267K</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Marketing Influence</span>
+                                    <span class="metric-value highlight">45%</span>
+                                </div>
+                            </div>
+                            <div class="business-insight">
+                                <i class="bi bi-clock"></i>
+                                Large pipeline but no closed deals yet - long sales cycle
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GOV ROW -->
+                    <div class="col-lg-4 mb-4">
+                        <div class="business-card success">
+                            <div class="business-header">
+                                <h3><i class="bi bi-globe me-2"></i>GOV ROW</h3>
+                                <span class="status-badge success">Strong</span>
+                            </div>
+                            <div class="business-metrics">
+                                <div class="metric-row">
+                                    <span class="metric-label">Closed Won YTD</span>
+                                    <span class="metric-value">$0 <small>(0 deals)</small></span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Open Pipeline</span>
+                                    <span class="metric-value">$3.85M <small>(19 opps)</small></span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Weighted Pipeline</span>
+                                    <span class="metric-value">$1.58M</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Avg Deal Size</span>
+                                    <span class="metric-value">$203K</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Marketing Influence</span>
+                                    <span class="metric-value highlight">55%</span>
+                                </div>
+                            </div>
+                            <div class="business-insight">
+                                <i class="bi bi-graph-up"></i>
+                                Healthy pipeline with good marketing influence
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="row mt-2">
+                    <div class="col-lg-8">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3><i class="bi bi-funnel me-2"></i>Pipeline by Sales Stage</h3>
+                                <span class="chart-subtitle">ACV by opportunity stage</span>
+                            </div>
+                            <div class="chart-container chart-large">
+                                <div id="pipelineStageChart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3><i class="bi bi-pie-chart me-2"></i>By Opportunity Type</h3>
+                                <span class="chart-subtitle">New vs expansion pipeline</span>
+                            </div>
+                            <div class="chart-container">
+                                <div id="oppTypeChart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Health Section -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="table-card">
+                            <div class="table-header">
+                                <h3><i class="bi bi-heart-pulse me-2"></i>Customer Health (Expansion Pipeline)</h3>
+                                <span class="table-subtitle">Renewal, Upsell & Cross-sell activity indicates customer satisfaction</span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Opportunity Type</th>
+                                            <th class="text-center">Open Opps</th>
+                                            <th class="text-end">Pipeline ACV</th>
+                                            <th class="text-center">Status</th>
+                                            <th>Insight</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Cross-sell</strong></td>
+                                            <td class="text-center">4</td>
+                                            <td class="text-end">$526K</td>
+                                            <td class="text-center"><span class="status-badge success">Active</span></td>
+                                            <td>Healthy expansion into new product lines</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Upsell</strong></td>
+                                            <td class="text-center">1</td>
+                                            <td class="text-end">$25K</td>
+                                            <td class="text-center"><span class="status-badge success">Active</span></td>
+                                            <td>Customer growing usage</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Renewal</strong></td>
+                                            <td class="text-center">1</td>
+                                            <td class="text-end">$0</td>
+                                            <td class="text-center"><span class="status-badge warning">Monitor</span></td>
+                                            <td>Early stage - monitor closely</td>
+                                        </tr>
+                                        <tr class="table-highlight">
+                                            <td><strong>Total Expansion</strong></td>
+                                            <td class="text-center"><strong>6</strong></td>
+                                            <td class="text-end"><strong>$551K</strong></td>
+                                            <td class="text-center"><span class="status-badge success">Healthy</span></td>
+                                            <td>Active expansion indicates healthy customer base</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <!-- Executive Summary Section -->
-        <section id="executive" class="dashboard-section active">
+        <section id="executive" class="dashboard-section">
             <div class="container-fluid">
                 <div class="section-header">
                     <div>
@@ -1185,7 +1514,11 @@
 
     <!-- Mobile Bottom Nav -->
     <nav class="mobile-nav d-lg-none">
-        <button class="mobile-nav-item active" data-section="executive">
+        <button class="mobile-nav-item active" data-section="revenue">
+            <i class="bi bi-currency-dollar"></i>
+            <span>Revenue</span>
+        </button>
+        <button class="mobile-nav-item" data-section="executive">
             <i class="bi bi-speedometer2"></i>
             <span>Summary</span>
         </button>
