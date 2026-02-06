@@ -1,47 +1,64 @@
 /* =====================================================
    Windward Marketing Dashboard - CSS Styles
+   Brand Guidelines Applied
    ===================================================== */
 
-/* CSS Custom Properties (Light Theme) */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Windward Brand Colors */
 :root {
-    --bg-primary: #F3F4F6;
-    --bg-secondary: #FFFFFF;
-    --bg-tertiary: #E5E7EB;
-    --text-primary: #1F2937;
-    --text-secondary: #4B5563;
-    --text-muted: #9CA3AF;
-    --accent-primary: #0066CC;
-    --accent-primary-light: #3B82F6;
-    --accent-success: #10B981;
-    --accent-success-light: #D1FAE5;
-    --accent-warning: #F59E0B;
-    --accent-warning-light: #FEF3C7;
-    --accent-danger: #EF4444;
-    --accent-danger-light: #FEE2E2;
-    --accent-info: #3B82F6;
-    --accent-info-light: #DBEAFE;
-    --border-color: #E5E7EB;
-    --card-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
-    --card-shadow-hover: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+    /* Brand Palette */
+    --windward-deep-sea: #001028;
+    --windward-golf-blue: #021953;
+    --windward-bearing-gold: #C36513;
+    --windward-green-shell: #2A9F81;
+    --windward-high-risk-red: #F44336;
+    --windward-yellow: #F9A825;
+    --windward-low-risk-blue: #518BF9;
+    --windward-secondary-text: #6C859E;
+    --windward-dark-stroke: #6C659E;
+    --windward-stroke: #E5EBF3;
+    --windward-white: #FFFFFF;
+
+    /* Dark Theme (Default - Brand Standard) */
+    --bg-primary: var(--windward-deep-sea);
+    --bg-secondary: #1a2438;
+    --bg-tertiary: #243044;
+    --text-primary: var(--windward-white);
+    --text-secondary: var(--windward-secondary-text);
+    --text-muted: #5a7090;
+    --accent-primary: var(--windward-bearing-gold);
+    --accent-primary-light: #d4782e;
+    --accent-success: var(--windward-green-shell);
+    --accent-success-light: rgba(42, 159, 129, 0.2);
+    --accent-warning: var(--windward-yellow);
+    --accent-warning-light: rgba(249, 168, 37, 0.2);
+    --accent-danger: var(--windward-high-risk-red);
+    --accent-danger-light: rgba(244, 67, 54, 0.2);
+    --accent-info: var(--windward-low-risk-blue);
+    --accent-info-light: rgba(81, 139, 249, 0.2);
+    --border-color: var(--windward-dark-stroke);
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+    --card-shadow-hover: 0 4px 6px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.3);
     --nav-height: 70px;
     --footer-height: 50px;
     --mobile-nav-height: 60px;
     --transition-speed: 0.3s;
 }
 
-/* Dark Theme */
-[data-theme="dark"] {
-    --bg-primary: #111827;
-    --bg-secondary: #1F2937;
-    --bg-tertiary: #374151;
-    --text-primary: #F9FAFB;
-    --text-secondary: #D1D5DB;
+/* Light Theme (Alternative) */
+[data-theme="light"] {
+    --bg-primary: #F3F4F6;
+    --bg-secondary: var(--windward-white);
+    --bg-tertiary: #E5E7EB;
+    --text-primary: var(--windward-deep-sea);
+    --text-secondary: var(--windward-secondary-text);
     --text-muted: #9CA3AF;
-    --accent-primary: #60A5FA;
-    --accent-primary-light: #3B82F6;
-    --border-color: #374151;
-    --card-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
-    --card-shadow-hover: 0 4px 6px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+    --accent-primary: var(--windward-bearing-gold);
+    --accent-primary-light: #d4782e;
+    --border-color: var(--windward-stroke);
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    --card-shadow-hover: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
 }
 
 /* Reset & Base */
@@ -52,11 +69,29 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
     transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Typography - Brand Standards */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Data/Numbers use Fira Code */
+.kpi-value,
+.stat-value,
+.metric-value,
+.counter,
+.conversion-value .rate,
+.efficiency-stat .stat-value {
+    font-family: 'Fira Code', monospace;
 }
 
 /* =====================================================
@@ -73,18 +108,21 @@ body {
 }
 
 .navbar-brand {
-    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
     font-size: 1.25rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
 }
 
 .brand-text {
-    color: var(--accent-primary);
+    color: var(--text-primary);
 }
 
 .brand-suffix {
-    color: var(--text-secondary);
+    color: var(--windward-bearing-gold);
 }
 
 .nav-pills-container {
@@ -179,9 +217,14 @@ body {
 
 .section-header h1 {
     font-size: 1.75rem;
-    font-weight: 700;
+    font-weight: 300;
     color: var(--text-primary);
     margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--windward-bearing-gold);
+    display: inline-block;
 }
 
 .section-subtitle {

@@ -267,27 +267,29 @@ const dashboardData = {
     }
 };
 
-// Chart color themes
+// Windward Brand Chart Colors
 const chartColors = {
     light: {
-        primary: '#0066CC',
-        primaryLight: '#60A5FA',
-        success: '#10B981',
-        warning: '#F59E0B',
-        danger: '#EF4444',
-        gray: '#9CA3AF',
-        gridLines: '#E5E7EB',
-        text: '#4B5563'
+        primary: '#C36513',       // Bearing Gold
+        primaryLight: '#d4782e',
+        success: '#2A9F81',       // Green Shell
+        warning: '#F9A825',       // Yellow
+        danger: '#F44336',        // High Risk Red
+        info: '#518BF9',          // Low Risk Blue
+        gray: '#6C859E',          // Secondary Text
+        gridLines: '#E5EBF3',     // Stroke
+        text: '#001028'           // Deep Sea
     },
     dark: {
-        primary: '#60A5FA',
-        primaryLight: '#93C5FD',
-        success: '#34D399',
-        warning: '#FBBF24',
-        danger: '#F87171',
-        gray: '#6B7280',
-        gridLines: '#374151',
-        text: '#9CA3AF'
+        primary: '#C36513',       // Bearing Gold
+        primaryLight: '#d4782e',
+        success: '#2A9F81',       // Green Shell
+        warning: '#F9A825',       // Yellow
+        danger: '#F44336',        // High Risk Red
+        info: '#518BF9',          // Low Risk Blue
+        gray: '#6C859E',          // Secondary Text
+        gridLines: '#6C659E',     // Dark Stroke
+        text: '#FFFFFF'           // White
     }
 };
 
