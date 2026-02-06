@@ -121,6 +121,12 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
 }
 
+.brand-dot {
+    color: var(--windward-bearing-gold);
+    font-size: 1.1em;
+    margin-left: 1px;
+}
+
 .brand-suffix {
     color: var(--windward-bearing-gold);
 }
@@ -1101,33 +1107,63 @@ h1, h2, h3, h4, h5, h6 {
    ApexCharts Dark Mode Overrides
    ===================================================== */
 
-[data-theme="dark"] .apexcharts-text,
-[data-theme="dark"] .apexcharts-title-text {
+/* Dark theme - ensure all text is visible */
+.apexcharts-text,
+.apexcharts-title-text {
+    fill: var(--text-primary) !important;
+}
+
+.apexcharts-xaxis-label,
+.apexcharts-yaxis-label {
     fill: var(--text-secondary) !important;
 }
 
-[data-theme="dark"] .apexcharts-legend-text {
-    color: var(--text-secondary) !important;
+.apexcharts-legend-text {
+    color: var(--text-primary) !important;
 }
 
-[data-theme="dark"] .apexcharts-gridline {
+.apexcharts-datalabel {
+    fill: var(--text-primary) !important;
+}
+
+.apexcharts-gridline {
     stroke: var(--border-color) !important;
 }
 
-[data-theme="dark"] .apexcharts-xaxis-tick,
-[data-theme="dark"] .apexcharts-yaxis-tick {
+.apexcharts-xaxis-tick,
+.apexcharts-yaxis-tick {
     stroke: var(--border-color) !important;
 }
 
-[data-theme="dark"] .apexcharts-tooltip {
+.apexcharts-tooltip {
     background: var(--bg-secondary) !important;
     border-color: var(--border-color) !important;
     color: var(--text-primary) !important;
 }
 
-[data-theme="dark"] .apexcharts-tooltip-title {
+.apexcharts-tooltip-title {
     background: var(--bg-tertiary) !important;
     border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.apexcharts-tooltip-text {
+    color: var(--text-primary) !important;
+}
+
+.apexcharts-tooltip-series-group {
+    color: var(--text-primary) !important;
+}
+
+/* Donut chart center labels */
+.apexcharts-datalabel-label,
+.apexcharts-datalabel-value {
+    fill: var(--text-primary) !important;
+}
+
+/* Pie/donut chart labels */
+.apexcharts-pie-label {
+    fill: var(--text-primary) !important;
 }
 
 /* =====================================================

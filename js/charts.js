@@ -9,10 +9,12 @@ const chartInstances = {};
 // Common chart options
 function getCommonOptions() {
     const colors = getThemeColors();
+    const isDark = document.documentElement.dataset.theme === 'dark';
     return {
         chart: {
-            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
             toolbar: { show: false },
+            background: 'transparent',
             animations: {
                 enabled: true,
                 easing: 'easeinout',
@@ -24,7 +26,16 @@ function getCommonOptions() {
             strokeDashArray: 4
         },
         tooltip: {
-            theme: document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
+            theme: isDark ? 'dark' : 'light',
+            style: {
+                fontSize: '12px',
+                fontFamily: "'Inter', sans-serif"
+            }
+        },
+        dataLabels: {
+            style: {
+                colors: isDark ? ['#FFFFFF'] : ['#001028']
+            }
         }
     };
 }
@@ -67,7 +78,7 @@ function renderExecutiveFunnelChart() {
             offsetY: -20,
             style: {
                 fontSize: '11px',
-                colors: [colors.text]
+                colors: [document.documentElement.dataset.theme === 'dark' ? '#FFFFFF' : '#001028']
             }
         },
         xaxis: {
@@ -133,7 +144,7 @@ function renderFunnelComparisonChart() {
             offsetY: -25,
             style: {
                 fontSize: '12px',
-                colors: [colors.text]
+                colors: [document.documentElement.dataset.theme === 'dark' ? '#FFFFFF' : '#001028']
             }
         },
         xaxis: {
