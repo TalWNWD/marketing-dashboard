@@ -39,8 +39,8 @@ function showPasswordPrompt() {
             <div class="auth-logo">
                 <img src="https://windward.ai/wp-content/uploads/2022/10/windward-logo-only-blue.svg" alt="Windward" width="60">
             </div>
-            <h2>Marketing Dashboard</h2>
-            <p>Enter password to access</p>
+            <h2>Windward's Lighthouse</h2>
+            <p>Enter password to access the dashboard</p>
             <form id="authForm">
                 <input type="password" id="authPassword" placeholder="Password" autocomplete="current-password" autofocus>
                 <button type="submit">Access Dashboard</button>

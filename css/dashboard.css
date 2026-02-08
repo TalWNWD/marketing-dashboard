@@ -114,7 +114,9 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 4px;
     text-transform: uppercase;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: baseline;
+    max-width: 140px;
 }
 
 .brand-text {
@@ -125,6 +127,17 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--windward-bearing-gold);
     font-size: 1.1em;
     margin-left: 1px;
+}
+
+.brand-subtitle {
+    width: 100%;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--windward-bearing-gold);
+    margin-top: -2px;
+    opacity: 0.9;
 }
 
 .brand-suffix {
