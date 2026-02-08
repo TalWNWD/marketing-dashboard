@@ -221,6 +221,13 @@ function animateSection(sectionId) {
             animateInsightBoxes(section);
             break;
 
+        case 'seo':
+            animateKPICards(section);
+            animateCountersInSection(section);
+            animateInsightBoxes(section);
+            animateChartCards(section);
+            break;
+
         case 'actions':
             animateActionCards(section);
             animateSummaryCards(section);

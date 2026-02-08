@@ -756,6 +756,166 @@ function renderOppTypeChart() {
     chartInstances.oppType.render();
 }
 
+// SEO Organic Traffic Trend Chart (Area)
+function renderSeoTrafficChart() {
+    const colors = getThemeColors();
+    const data = dashboardData.seo.organicTrend;
+
+    const options = {
+        ...getCommonOptions(),
+        series: [{
+            name: 'Organic Clicks',
+            data: data.map(d => d.clicks)
+        }, {
+            name: 'Conversions',
+            data: data.map(d => d.conversions)
+        }],
+        chart: {
+            type: 'area',
+            height: 300,
+            toolbar: { show: false }
+        },
+        colors: [colors.success, colors.primary],
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shadeIntensity: 1,
+                opacityFrom: 0.4,
+                opacityTo: 0.1,
+                stops: [0, 90, 100]
+            }
+        },
+        stroke: {
+            curve: 'smooth',
+            width: 2
+        },
+        dataLabels: {
+            enabled: false
+        },
+        xaxis: {
+            categories: data.map(d => d.week),
+            labels: { style: { colors: colors.text } }
+        },
+        yaxis: [{
+            title: { text: 'Clicks', style: { color: colors.text } },
+            labels: {
+                style: { colors: colors.text },
+                formatter: function(val) {
+                    return (val / 1000).toFixed(1) + 'K';
+                }
+            }
+        }, {
+            opposite: true,
+            title: { text: 'Conversions', style: { color: colors.text } },
+            labels: { style: { colors: colors.text } }
+        }],
+        legend: {
+            position: 'top',
+            labels: { colors: colors.text }
+        },
+        tooltip: {
+            shared: true,
+            y: {
+                formatter: function(val, { seriesIndex }) {
+                    if (seriesIndex === 0) {
+                        return val.toLocaleString() + ' clicks';
+                    }
+                    return val + ' conversions';
+                }
+            }
+        }
+    };
+
+    if (chartInstances.seoTraffic) {
+        chartInstances.seoTraffic.destroy();
+    }
+
+    chartInstances.seoTraffic = new ApexCharts(
+        document.querySelector('#seoTrafficChart'),
+        options
+    );
+    chartInstances.seoTraffic.render();
+}
+
+// SEO Traffic by Content Type Chart (Donut)
+function renderSeoContentTypeChart() {
+    const colors = getThemeColors();
+    const data = dashboardData.seo.trafficByContentType;
+
+    const options = {
+        ...getCommonOptions(),
+        series: data.map(d => d.clicks),
+        chart: {
+            type: 'donut',
+            height: 300
+        },
+        labels: data.map(d => d.type),
+        colors: [colors.primary, colors.success, colors.info, colors.warning, colors.gray],
+        plotOptions: {
+            pie: {
+                donut: {
+                    size: '65%',
+                    labels: {
+                        show: true,
+                        name: {
+                            show: true,
+                            color: colors.text,
+                            fontSize: '14px'
+                        },
+                        value: {
+                            show: true,
+                            color: colors.text,
+                            fontSize: '16px',
+                            fontWeight: 600,
+                            formatter: function(val) {
+                                return val.toLocaleString();
+                            }
+                        },
+                        total: {
+                            show: true,
+                            label: 'Total Clicks',
+                            color: colors.text,
+                            formatter: function(w) {
+                                const total = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                                return total.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        legend: {
+            position: 'bottom',
+            labels: { colors: colors.text },
+            formatter: function(seriesName, opts) {
+                const idx = opts.seriesIndex;
+                return seriesName + ' (' + data[idx].percent + '%)';
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        tooltip: {
+            y: {
+                formatter: function(val, { seriesIndex }) {
+                    const item = data[seriesIndex];
+                    return val.toLocaleString() + ' clicks (' + item.percent + '%)';
+                }
+            }
+        }
+    };
+
+    if (chartInstances.seoContentType) {
+        chartInstances.seoContentType.destroy();
+    }
+
+    chartInstances.seoContentType = new ApexCharts(
+        document.querySelector('#seoContentTypeChart'),
+        options
+    );
+    chartInstances.seoContentType.render();
+}
+
 // Initialize all charts
 function initializeCharts() {
     // Wait for DOM to be ready
@@ -807,6 +967,14 @@ function renderAllCharts() {
     }
     if (document.querySelector('#costPerMqlChart')) {
         renderCostPerMqlChart();
+    }
+
+    // SEO section charts
+    if (document.querySelector('#seoTrafficChart')) {
+        renderSeoTrafficChart();
+    }
+    if (document.querySelector('#seoContentTypeChart')) {
+        renderSeoContentTypeChart();
     }
 }
 

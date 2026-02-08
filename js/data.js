@@ -1,14 +1,14 @@
 /* =====================================================
    Windward Marketing Dashboard - Data Module
-   Data as of February 5, 2026
+   Data as of February 8, 2026
    Generated with Claude Code
    ===================================================== */
 
 const dashboardData = {
     metadata: {
-        lastUpdated: "2026-02-05",
+        lastUpdated: "2026-02-08",
         periodStart: "2026-01-01",
-        periodEnd: "2026-02-05",
+        periodEnd: "2026-02-08",
         generatedBy: "Claude Code",
         dataSource: "BigQuery WNWD Dataset"
     },
@@ -52,10 +52,10 @@ const dashboardData = {
 
     funnel: {
         "2026": {
-            leads: 420,
-            mqls: 114,
-            sqls: 43,
-            opportunities: 14,
+            leads: 440,
+            mqls: 120,
+            sqls: 44,
+            opportunities: 15,
             closedWon: 2
         },
         "2025": {
@@ -278,9 +278,9 @@ const dashboardData = {
 
         // Company-wide Open Pipeline
         pipeline: {
-            total: { value: 10541256, formatted: "$10.54M", opps: 93 },
-            marketing: { value: 5360000, formatted: "$5.36M", opps: 14 },
-            marketingPercent: 51,
+            total: { value: 10541256, formatted: "$10.54M", opps: 94 },
+            marketing: { value: 5519004, formatted: "$5.52M", opps: 24 },
+            marketingPercent: 52,
             weighted: { value: 3915027, formatted: "$3.92M" }
         },
 
@@ -289,7 +289,7 @@ const dashboardData = {
             commercial: {
                 name: "Commercial",
                 closedWon: { value: 39450, formatted: "$39.5K", deals: 2 },
-                pipeline: { value: 2153906, formatted: "$2.15M", opps: 57 },
+                pipeline: { value: 2153906, formatted: "$2.15M", opps: 58 },
                 weighted: { value: 942522, formatted: "$943K" },
                 marketingContrib: 34,
                 avgDealSize: 37788,
@@ -323,7 +323,7 @@ const dashboardData = {
             { stage: "C&L Negotiation", opps: 8, acv: 314400, probability: 80, formatted: "$314K" },
             { stage: "Proposal", opps: 25, acv: 1807501, probability: 60, formatted: "$1.81M" },
             { stage: "POC/Trial", opps: 9, acv: 812002, probability: 40, formatted: "$812K" },
-            { stage: "Prospect Engagement", opps: 46, acv: 7327352, probability: 30, formatted: "$7.33M" },
+            { stage: "Prospect Engagement", opps: 47, acv: 7327352, probability: 30, formatted: "$7.33M" },
             { stage: "Qualified Lead", opps: 5, acv: 280001, probability: 20, formatted: "$280K" }
         ],
 
@@ -343,6 +343,71 @@ const dashboardData = {
             totalExpansion: { opps: 6, acv: 551000, formatted: "$551K" },
             healthStatus: "healthy",
             insight: "Active expansion pipeline indicates healthy customer relationships"
+        }
+    },
+
+    // SEO Performance - Organic traffic and keyword rankings
+    seo: {
+        metadata: {
+            lastUpdated: "2026-02-08",
+            dataFreshness: {
+                gsc: "2026-01-03 to 2026-02-02",
+                actionQueue: "2026-02-05"
+            }
+        },
+
+        weeklyMetrics: {
+            organicClicks: { value: 8942, previousPeriod: 7980, change: 12 },
+            impressions: { value: 2473861, formatted: "2.47M" },
+            conversions: { value: 41, cvr: 0.46 },
+            avgPosition: 20.01,
+            pagesIndexed: 825
+        },
+
+        organicTrend: [
+            { week: "W01", clicks: 7200, conversions: 32 },
+            { week: "W02", clicks: 7500, conversions: 35 },
+            { week: "W03", clicks: 7800, conversions: 38 },
+            { week: "W04", clicks: 8200, conversions: 39 },
+            { week: "W05", clicks: 8500, conversions: 40 },
+            { week: "W06", clicks: 8942, conversions: 41 }
+        ],
+
+        trafficByContentType: [
+            { type: "Blog", clicks: 3200, percent: 36 },
+            { type: "Glossary", clicks: 2100, percent: 23 },
+            { type: "Solutions", clicks: 1800, percent: 20 },
+            { type: "Knowledge Base", clicks: 1200, percent: 13 },
+            { type: "Other", clicks: 642, percent: 8 }
+        ],
+
+        quickWinKeywords: [
+            { keyword: "oil tanker", position: 9.0, impressions: 155493, status: "opportunity" },
+            { keyword: "shadow fleet", position: 8.2, impressions: 48174, status: "opportunity" },
+            { keyword: "vessel tracking", position: 9.3, impressions: 20034, status: "opportunity" },
+            { keyword: "russian shadow fleet", position: 10.0, impressions: 17729, status: "opportunity" },
+            { keyword: "sanctions screening", position: 7.5, impressions: 3891, status: "defending" }
+        ],
+
+        taskQueue: {
+            summary: { totalPending: 30, totalCompleted: 0, highPriority: 12 },
+            topTasks: [
+                { id: "ACT-001", action: "Resume blog publishing", priority: 190, team: "content-team", status: "pending" },
+                { id: "ACT-002", action: "2026 Maritime Risk Outlook", priority: 135, team: "content-team", status: "pending" },
+                { id: "ACT-017", action: "Q1 Dark Fleet Report", priority: 128, team: "content-team", status: "pending" },
+                { id: "ACT-018", action: "Atlantic Council outreach", priority: 102, team: "content-team", status: "pending" }
+            ]
+        },
+
+        competitorGaps: [
+            { competitor: "Kpler", gap: "2026 market outlook content", priority: 80 },
+            { competitor: "MarineTraffic", gap: "Monthly reporting cadence", priority: 85 },
+            { competitor: "Pole Star", gap: "Vessel case studies", priority: 82 }
+        ],
+
+        aiAnswerStatus: {
+            cited: ["what is dark fleet", "ship to ship transfer detection"],
+            notCited: ["what is shadow fleet", "AIS spoofing detection", "maritime compliance regulations"]
         }
     }
 };

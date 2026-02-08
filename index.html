@@ -64,6 +64,12 @@
                         </button>
                     </li>
                     <li class="nav-item">
+                        <button class="nav-pill" data-section="seo">
+                            <i class="bi bi-search"></i>
+                            <span>SEO</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
                         <button class="nav-pill" data-section="actions">
                             <i class="bi bi-lightning"></i>
                             <span>Actions</span>
@@ -99,7 +105,7 @@
                     </div>
                     <div class="data-badge">
                         <i class="bi bi-clock"></i>
-                        <span>Data as of <span>Feb 5, 2026</span></span>
+                        <span>Data as of <span>Feb 8, 2026</span></span>
                     </div>
                 </div>
 
@@ -126,7 +132,7 @@
                             <strong>Company-Wide Revenue:</strong><br>
                             Total: $39.5K (2 deals)<br>
                             All from Commercial segment<br>
-                            <strong>Period:</strong> Jan 1 - Feb 5, 2026
+                            <strong>Period:</strong> Jan 1 - Feb 8, 2026
                         </div>
                     </div>
 
@@ -422,7 +428,7 @@
                     </div>
                     <div class="data-badge">
                         <i class="bi bi-clock"></i>
-                        <span>Data as of <span id="lastUpdated">Feb 5, 2026</span></span>
+                        <span>Data as of <span id="lastUpdated">Feb 8, 2026</span></span>
                     </div>
                 </div>
 
@@ -447,7 +453,7 @@
                         <div class="kpi-tooltip">
                             <strong>Calculation:</strong><br>
                             35 SQLs / 92 MQLs = 38%<br>
-                            <strong>Period:</strong> Jan 1 - Feb 5, 2026<br>
+                            <strong>Period:</strong> Jan 1 - Feb 8, 2026<br>
                             <strong>Status:</strong> Exceeding target by 13pts
                         </div>
                     </div>
@@ -1090,6 +1096,281 @@
             </div>
         </section>
 
+        <!-- SEO Performance Section -->
+        <section id="seo" class="dashboard-section">
+            <div class="container-fluid">
+                <div class="section-header">
+                    <div>
+                        <h1>SEO Performance</h1>
+                        <p class="section-subtitle">Organic Traffic & Keyword Rankings</p>
+                    </div>
+                    <div class="data-badge">
+                        <i class="bi bi-clock"></i>
+                        <span>GSC Data: Jan 3 - Feb 2, 2026</span>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <!-- Organic Clicks -->
+                    <div class="kpi-card success" data-tooltip="true">
+                        <div class="kpi-icon">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">
+                                <span class="counter" data-target="8942" data-suffix="">0</span>
+                            </div>
+                            <div class="kpi-label">Organic Clicks (30d)</div>
+                            <div class="kpi-detail positive">
+                                +12% vs previous period
+                            </div>
+                        </div>
+                        <div class="kpi-badge">
+                            <span class="badge bg-success">Growing</span>
+                        </div>
+                    </div>
+
+                    <!-- Impressions -->
+                    <div class="kpi-card" data-tooltip="true">
+                        <div class="kpi-icon">
+                            <i class="bi bi-eye"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">2.47M</div>
+                            <div class="kpi-label">Impressions</div>
+                            <div class="kpi-detail">
+                                Avg Position: 20.01
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conversions -->
+                    <div class="kpi-card success" data-tooltip="true">
+                        <div class="kpi-icon">
+                            <i class="bi bi-trophy"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">
+                                <span class="counter" data-target="41" data-suffix="">0</span>
+                            </div>
+                            <div class="kpi-label">Organic Conversions</div>
+                            <div class="kpi-detail">
+                                0.46% CVR
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Task Queue -->
+                    <div class="kpi-card warning" data-tooltip="true">
+                        <div class="kpi-icon">
+                            <i class="bi bi-list-task"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">0/30</div>
+                            <div class="kpi-label">Tasks Completed</div>
+                            <div class="kpi-detail">
+                                12 high priority
+                            </div>
+                        </div>
+                        <div class="kpi-badge">
+                            <span class="badge bg-warning">Pending</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Wins Insight Box -->
+                <div class="insight-box success mt-3">
+                    <div class="insight-icon">
+                        <i class="bi bi-lightning"></i>
+                    </div>
+                    <div class="insight-content">
+                        <strong>Quick Win Keywords (Position 5-15):</strong> "oil tanker" (pos 9, 155K impressions), "shadow fleet" (pos 8.2, 48K), "vessel tracking" (pos 9.3, 20K). Small position improvements could significantly boost traffic.
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="row mt-4">
+                    <div class="col-lg-8">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3><i class="bi bi-graph-up me-2"></i>Organic Traffic Trend</h3>
+                                <span class="chart-subtitle">6-week clicks & conversions</span>
+                            </div>
+                            <div class="chart-container">
+                                <div id="seoTrafficChart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3><i class="bi bi-pie-chart me-2"></i>Traffic by Content</h3>
+                                <span class="chart-subtitle">Clicks by content type</span>
+                            </div>
+                            <div class="chart-container">
+                                <div id="seoContentTypeChart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tables Row -->
+                <div class="row mt-4">
+                    <!-- Quick Win Keywords Table -->
+                    <div class="col-lg-6">
+                        <div class="table-card">
+                            <div class="table-header">
+                                <h3><i class="bi bi-bullseye me-2"></i>Quick Win Keywords</h3>
+                                <span class="table-subtitle">Position 5-15 opportunities</span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Keyword</th>
+                                            <th class="text-center">Position</th>
+                                            <th class="text-end">Impressions</th>
+                                            <th class="text-center">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>oil tanker</strong></td>
+                                            <td class="text-center">9.0</td>
+                                            <td class="text-end">155,493</td>
+                                            <td class="text-center"><span class="status-badge success">Opportunity</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>shadow fleet</strong></td>
+                                            <td class="text-center">8.2</td>
+                                            <td class="text-end">48,174</td>
+                                            <td class="text-center"><span class="status-badge success">Opportunity</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>vessel tracking</strong></td>
+                                            <td class="text-center">9.3</td>
+                                            <td class="text-end">20,034</td>
+                                            <td class="text-center"><span class="status-badge success">Opportunity</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>russian shadow fleet</strong></td>
+                                            <td class="text-center">10.0</td>
+                                            <td class="text-end">17,729</td>
+                                            <td class="text-center"><span class="status-badge success">Opportunity</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>sanctions screening</strong></td>
+                                            <td class="text-center">7.5</td>
+                                            <td class="text-end">3,891</td>
+                                            <td class="text-center"><span class="status-badge info">Defending</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO Task Queue Table -->
+                    <div class="col-lg-6">
+                        <div class="table-card">
+                            <div class="table-header">
+                                <h3><i class="bi bi-list-check me-2"></i>SEO Task Queue</h3>
+                                <span class="table-subtitle">Top priority actions</span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Action</th>
+                                            <th class="text-center">Priority</th>
+                                            <th class="text-center">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code>ACT-001</code></td>
+                                            <td><strong>Resume blog publishing</strong></td>
+                                            <td class="text-center"><span class="badge bg-danger">190</span></td>
+                                            <td class="text-center"><span class="status-badge warning">Pending</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>ACT-002</code></td>
+                                            <td><strong>2026 Maritime Risk Outlook</strong></td>
+                                            <td class="text-center"><span class="badge bg-warning">135</span></td>
+                                            <td class="text-center"><span class="status-badge warning">Pending</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>ACT-017</code></td>
+                                            <td><strong>Q1 Dark Fleet Report</strong></td>
+                                            <td class="text-center"><span class="badge bg-warning">128</span></td>
+                                            <td class="text-center"><span class="status-badge warning">Pending</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>ACT-018</code></td>
+                                            <td><strong>Atlantic Council outreach</strong></td>
+                                            <td class="text-center"><span class="badge bg-info">102</span></td>
+                                            <td class="text-center"><span class="status-badge warning">Pending</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Competitor & AI Status Row -->
+                <div class="row mt-4">
+                    <!-- Competitor Gaps -->
+                    <div class="col-lg-6">
+                        <div class="stats-card">
+                            <h3><i class="bi bi-bar-chart me-2"></i>Competitor Content Gaps</h3>
+                            <div class="stat-items">
+                                <div class="stat-item">
+                                    <span class="stat-label">Kpler</span>
+                                    <span class="stat-value">2026 market outlook content</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">MarineTraffic</span>
+                                    <span class="stat-value">Monthly reporting cadence</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Pole Star</span>
+                                    <span class="stat-value">Vessel case studies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Answer Status -->
+                    <div class="col-lg-6">
+                        <div class="stats-card">
+                            <h3><i class="bi bi-robot me-2"></i>AI Answer Engine Status</h3>
+                            <div class="stat-items">
+                                <div class="stat-item">
+                                    <span class="stat-label text-success"><i class="bi bi-check-circle me-1"></i>Cited</span>
+                                    <span class="stat-value">"what is dark fleet", "ship to ship transfer"</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label text-danger"><i class="bi bi-x-circle me-1"></i>Not Cited</span>
+                                    <span class="stat-value">"shadow fleet", "AIS spoofing detection"</span>
+                                </div>
+                            </div>
+                            <div class="insight-box info mt-3">
+                                <div class="insight-icon">
+                                    <i class="bi bi-lightbulb"></i>
+                                </div>
+                                <div class="insight-content">
+                                    <strong>GEO Opportunity:</strong> Create "shadow fleet" glossary page with Wikidata sameAs link to improve AI citation chances.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Actions Section -->
         <section id="actions" class="dashboard-section">
             <div class="container-fluid">
@@ -1538,6 +1819,10 @@
             <i class="bi bi-cash-stack"></i>
             <span>Paid</span>
         </button>
+        <button class="mobile-nav-item" data-section="seo">
+            <i class="bi bi-search"></i>
+            <span>SEO</span>
+        </button>
         <button class="mobile-nav-item" data-section="actions">
             <i class="bi bi-lightning"></i>
             <span>Actions</span>
@@ -1552,6 +1837,7 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/data.js"></script>
     <script src="js/charts.js"></script>
     <script src="js/animations.js"></script>
